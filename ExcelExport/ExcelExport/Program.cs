@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
@@ -9,8 +9,11 @@ namespace sqltoexcel
     {
         static void Main(string[] args)
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            
             // Connection string for database
             string connectionString = "Data Source=192.168.9.5:1521/rocdb.bipa.na;User Id=BIPAIT4;Password=Bipa@321;";
+            //string query = "Select * \r\n\r\n from icrs_interface.vw_all_entity";
             string query = "SELECT CASE  \r\n\r\n" +
                                 "WHEN GROUPING (Divisions) = 1 THEN 'Grand Total'\r\n        " +
                                 "ELSE (Divisions)\r\n        END AS Division,        \r\n        \r\n        " +
@@ -19,13 +22,13 @@ namespace sqltoexcel
                                 "SUM(CASE WHEN org_cat_ent_cd = 'CC' THEN Total ELSE 0 END) AS \"CC\",\r\n        " +
                                 "SUM(CASE WHEN org_cat_ent_cd = 'FOR' THEN Total ELSE 0 END) AS \"FOR\",\r\n        " +
                                 "SUM(CASE WHEN org_cat_ent_cd = 'DN' THEN Total ELSE 0 END) AS \"DN\",\r\n        " +
-                                "SUM(Total) AS Grand_Total\r\nFROM (\r\n        " +
-                                
-                            "SELECT  \r\n                " +
-                                "major_div_code AS Divisions,\r\n                " +
-                                "org_cat_ent_cd,\r\n                " +
-                                "COUNT(1) AS Total \r\n        " +
-                            "FROM icrs_interface.vw_all_entity \r\n        " +
+                                "SUM(Total) AS Grand_Total\r\n" +
+                            "FROM (\r\n        " +
+                                "SELECT  \r\n                " +
+                                    "major_div_code AS Divisions,\r\n                " +
+                                    "org_cat_ent_cd,\r\n                " +
+                                    "COUNT(1) AS Total \r\n        " +
+                                "FROM icrs_interface.vw_all_entity \r\n        " +
                             "GROUP BY major_div_code, org_cat_ent_cd) sub\r\n\r\n" +
                             "GROUP BY ROLLUP (Divisions) \r\n" +
                             "ORDER BY Divisions";
@@ -62,6 +65,16 @@ namespace sqltoexcel
                             // Export the DataTable to Excel
                             Console.WriteLine("call export");
                             ExportToExcel(dataTable);
+
+                            //Calculate time script takes to run and export result to log file
+                            watch.Stop();
+                            Console.WriteLine($"Execution Time: {watch.Elapsed} ms");
+                            //using (StreamWriter writer = File.CreateText(@"C:\Users\Klaaste Vaughan\Documents\Timer.log", true))
+                            using (StreamWriter writer = new StreamWriter(@"C:\Users\Klaaste Vaughan\Documents\Timer.log", true))
+                            {
+                                writer.WriteLine($"Execution Time: {watch.Elapsed} ms");
+                            }
+
                         }
                     }
                 }
