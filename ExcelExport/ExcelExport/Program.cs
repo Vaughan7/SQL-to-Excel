@@ -10,6 +10,7 @@ namespace sqltoexcel
         static void Main(string[] args)
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
+            string currentDateTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
             
             // Connection string for database
             string connectionString = "Data Source=192.168.9.5:1521/rocdb.bipa.na;User Id=BIPAIT4;Password=Bipa@321;";
@@ -63,7 +64,7 @@ namespace sqltoexcel
                             adapter.Fill(dataTable);
 
                             // Export the DataTable to Excel
-                            Console.WriteLine("call export");
+                            Console.WriteLine("call Exported at: " + currentDateTime);
                             ExportToExcel(dataTable);
 
                             //Calculate time script takes to run and export result to log file
@@ -81,6 +82,12 @@ namespace sqltoexcel
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error: " + ex.Message);
+                    //using (StreamWriter errorWriter = File.CreateText(@"C:\Users\Klaaste Vaughan\Documents\ErrorLog.log"))
+                    using (StreamWriter errorWriter = new StreamWriter(@"C:\Users\Klaaste Vaughan\Documents\ErrorLog.log", true))
+                    {
+                        errorWriter.WriteLine("Error: " + ex.ToString());
+                        //errorWriter.WriteLine("Current Time: " + currentDateTime);
+                    }
                 }
             }
         }
