@@ -67,3 +67,5 @@ C:\Users\Klaaste Vaughan\source\repos\ExcelExport\ExcelExport\obj\Debug\net7.0\r
 C:\Users\Klaaste Vaughan\source\repos\ExcelExport\ExcelExport\obj\Debug\net7.0\ExcelExport.pdb
 C:\Users\Klaaste Vaughan\source\repos\ExcelExport\ExcelExport\obj\Debug\net7.0\ExcelExport.genruntimeconfig.cache
 C:\Users\Klaaste Vaughan\source\repos\ExcelExport\ExcelExport\obj\Debug\net7.0\ref\ExcelExport.dll
+C:\Users\Klaaste Vaughan\source\repos\ExcelExport\ExcelExport\bin\Debug\net7.0\log4net.dll
+C:\Users\Klaaste Vaughan\source\repos\ExcelExport\ExcelExport\bin\Debug\net7.0\log4net.config

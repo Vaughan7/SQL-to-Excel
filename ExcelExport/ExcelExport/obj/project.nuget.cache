@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "m7Y7cLQZq0fgDXedWbz5nD9jj9IkxYr3nvEQTAPfnvLibpl8C1A6LDQ8cIxyPMEcyQ/AW7/Am4bURLJULQZZew==",
+  "dgSpecHash": "s2OatgwMwYVFLBRvwnqxHo4T3Fdqz+CmNp2s5741v0dDeJBfgEYz9pl3rbHwBprzdAUxOFTaRX3bd8u5RHgxyA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Klaaste Vaughan\\source\\repos\\ExcelExport\\ExcelExport\\ExcelExport.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\Klaaste Vaughan\\.nuget\\packages\\epplus\\7.0.2\\epplus.7.0.2.nupkg.sha512",
     "C:\\Users\\Klaaste Vaughan\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",
     "C:\\Users\\Klaaste Vaughan\\.nuget\\packages\\epplus.system.drawing\\6.1.1\\epplus.system.drawing.6.1.1.nupkg.sha512",
+    "C:\\Users\\Klaaste Vaughan\\.nuget\\packages\\log4net\\2.0.15\\log4net.2.0.15.nupkg.sha512",
     "C:\\Users\\Klaaste Vaughan\\.nuget\\packages\\mathnet.numerics.signed\\4.15.0\\mathnet.numerics.signed.4.15.0.nupkg.sha512",
     "C:\\Users\\Klaaste Vaughan\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\Klaaste Vaughan\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",

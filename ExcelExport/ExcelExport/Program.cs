@@ -1,4 +1,4 @@
-using System.Data;
+﻿using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
@@ -7,11 +7,12 @@ namespace sqltoexcel
 {
     class Program
     {
+        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         static void Main(string[] args)
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
             string currentDateTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
-            
+
             // Connection string for database
             string connectionString = "Data Source=192.168.9.5:1521/rocdb.bipa.na;User Id=BIPAIT4;Password=Bipa@321;";
             //string query = "Select * \r\n\r\n from icrs_interface.vw_all_entity";
@@ -64,30 +65,36 @@ namespace sqltoexcel
                             adapter.Fill(dataTable);
 
                             // Export the DataTable to Excel
-                            Console.WriteLine("call Exported at: " + currentDateTime);
+                            Console.WriteLine("Call Exported at: " + currentDateTime);
                             ExportToExcel(dataTable);
 
-                            //Calculate time script takes to run and export result to log file
-                            watch.Stop();
-                            Console.WriteLine($"Execution Time: {watch.Elapsed} ms");
-                            //using (StreamWriter writer = File.CreateText(@"C:\Users\Klaaste Vaughan\Documents\Timer.log", true))
-                            using (StreamWriter writer = new StreamWriter(@"C:\Users\Klaaste Vaughan\Documents\Timer.log", true))
-                            {
-                                writer.WriteLine($"Execution Time: {watch.Elapsed} ms");
-                            }
+                            
 
                         }
+                    }
+
+                    //Calculate time script takes and export result to log file
+                    watch.Stop();
+                    Console.WriteLine($"Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm")} Execution Time: {watch.Elapsed} ms");
+                    //using (StreamWriter writer = File.CreateText(@"C:\Users\Klaaste Vaughan\Documents\Timer.log", true))
+                    using (StreamWriter timeWriter = new StreamWriter(@"C:\Users\Klaaste Vaughan\Documents\Timer.log", true))
+                    {
+
+                        timeWriter.WriteLine($"Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm")} Execution Time: {watch.Elapsed} ms");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error: " + ex.Message);
-                    //using (StreamWriter errorWriter = File.CreateText(@"C:\Users\Klaaste Vaughan\Documents\ErrorLog.log"))
-                    using (StreamWriter errorWriter = new StreamWriter(@"C:\Users\Klaaste Vaughan\Documents\ErrorLog.log", true))
-                    {
-                        errorWriter.WriteLine("Error: " + ex.ToString());
-                        //errorWriter.WriteLine("Current Time: " + currentDateTime);
-                    }
+                    //Console.WriteLine("Error: " + ex.Message + currentDateTime);
+                    ////using (StreamWriter errorWriter = File.CreateText(@"C:\Users\Klaaste Vaughan\Documents\ErrorLog.log"))
+                    //using (StreamWriter errorWriter = new StreamWriter(@"C:\Users\Klaaste Vaughan\Documents\ErrorLog.log", true))
+
+                    //{
+                    //    errorWriter.WriteLine("Error: " + ex.ToString());
+                    //    //errorWriter.WriteLine("Current Time: " + currentDateTime);
+                    //}
+
+                    logger.Error(String.Format(ex.Message));
                 }
             }
         }

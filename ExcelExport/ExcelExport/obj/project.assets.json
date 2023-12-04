@@ -104,6 +104,22 @@
           "lib/net7.0/EPPlus.System.Drawing.dll": {}
         }
       },
+      "log4net/2.0.15": {
+        "type": "package",
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/log4net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MathNet.Numerics.Signed/4.15.0": {
         "type": "package",
         "compile": {
@@ -1286,6 +1302,32 @@
         "lib/netstandard2.1/EPPlus.System.Drawing.dll",
         "license.md",
         "readme.md"
+      ]
+    },
+    "log4net/2.0.15": {
+      "sha512": "GahnO9ZgFka+xYcFwAfIFjW+k86P2nxFoaEpH6t3v4hiGj7tv2ksVZphxCVIHmJxoySS0HeU3dgCW+bSCcfD0A==",
+      "type": "package",
+      "path": "log4net/2.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/log4net.dll",
+        "lib/net20/log4net.xml",
+        "lib/net35/log4net.dll",
+        "lib/net35/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40/log4net.dll",
+        "lib/net40/log4net.xml",
+        "lib/net45/log4net.dll",
+        "lib/net45/log4net.xml",
+        "lib/netstandard1.3/log4net.dll",
+        "lib/netstandard1.3/log4net.xml",
+        "lib/netstandard2.0/log4net.dll",
+        "lib/netstandard2.0/log4net.xml",
+        "log4net.2.0.15.nupkg.sha512",
+        "log4net.nuspec",
+        "package-icon.png"
       ]
     },
     "MathNet.Numerics.Signed/4.15.0": {
@@ -3707,7 +3749,8 @@
       "EPPlus >= 7.0.2",
       "NPOI >= 2.6.2",
       "Oracle.ManagedDataAccess.Core >= 23.3.0-dev",
-      "System.Xml.ReaderWriter >= 4.3.1"
+      "System.Xml.ReaderWriter >= 4.3.1",
+      "log4net >= 2.0.15"
     ]
   },
   "packageFolders": {
@@ -3774,6 +3817,10 @@
           "System.Xml.ReaderWriter": {
             "target": "Package",
             "version": "[4.3.1, )"
+          },
+          "log4net": {
+            "target": "Package",
+            "version": "[2.0.15, )"
           }
         },
         "imports": [
