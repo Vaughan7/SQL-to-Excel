@@ -1,0 +1,2 @@
+2023-12-05 09:01:12,196 ERROR sqltoexcel.Program - Could not find a part of the path 'C:\Users\Klaaste Vaughan\Documents\SQLReport.xlsx'.
+2023-12-05 10:10:22,263 ERROR sqltoexcel.Program - Could not find a part of the path 'C:\Reports\SQLReport.xlsx'.

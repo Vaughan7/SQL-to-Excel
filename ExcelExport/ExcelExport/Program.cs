@@ -77,7 +77,7 @@ namespace sqltoexcel
                     watch.Stop();
                     Console.WriteLine($"Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm")} Execution Time: {watch.Elapsed} ms");
                     //using (StreamWriter writer = File.CreateText(@"C:\Users\Klaaste Vaughan\Documents\Timer.log", true))
-                    using (StreamWriter timeWriter = new StreamWriter(@"C:\Users\Klaaste Vaughan\Documents\Timer.log", true))
+                    using (StreamWriter timeWriter = new StreamWriter(@"..\..\..\..\Logs\Timer.log", true))
                     {
 
                         timeWriter.WriteLine($"Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm")} Execution Time: {watch.Elapsed} ms");
@@ -122,7 +122,7 @@ namespace sqltoexcel
             }
 
             // Save the workbook to a file
-            using (FileStream fs = new FileStream(@"C:\Users\Klaaste Vaughan\Documents\SQLReport.xlsx", FileMode.Create, FileAccess.Write))
+            using (FileStream fs = new FileStream(@"..\..\..\..\Reports\SQLReport.xlsx", FileMode.Create, FileAccess.Write))
             {
                 workbook.Write(fs);
             }
