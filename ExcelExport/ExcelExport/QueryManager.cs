@@ -25,21 +25,7 @@ namespace ExcelExport
 
         internal QueryManager()
         {
-           // this.connection = connectDB();
-
-           // //----------------------------unit-test------------------
-            //if (connectDB().State == ConnectionState.Open)
-            //{
-            //    Console.WriteLine("Connection still on!");
-            //}
-
-            //else
-            //{
-            //    Console.WriteLine("Connection fckd2!");
-
-            //}
-            // //---------------------------end-test ---------------------
-
+ 
         }
 
 
@@ -78,59 +64,6 @@ namespace ExcelExport
                     Console.WriteLine($"Failed to connect to database: {ex.Message}");
                     logger.Error(String.Format(ex.Message));
             }
-
-
-            //string connectionString = "Data Source=192.168.9.5:1521/rocdb.bipa.na;User Id=BIPAIT4;Password=Bipa@321;";
-            
-
-            //connect to database
-            // OracleConnection 
-            
-                   
-
-// //----------------------------unit-test------------------
-                    // this.connection = connection;
-
-                    //return connection;
-                
-                //else {
-                //    Console.WriteLine("Connection failed!");
-
-                //}
-
-                //if (connection.State == ConnectionState.Open)
-                //{
-                //    Console.WriteLine("Connection still on in try!");
-                //}
-
-                //else
-                //{
-                //    Console.WriteLine("Connection fckd in try!");
-
-                //}
-
-// //----------------------------unit-test-end -----------------
-
-            
-
-
-
-
-// //----------------------------unit-test-end------------------
-            // this.connection = connection;
-            // connection.Open();
-
-            //if (connection.State == ConnectionState.Open)
-            //{
-            //    Console.WriteLine("Connection still on before return!");
-            //}
-
-            //else
-            //{
-            //    Console.WriteLine("Connection fckd before return!");
-
-            //}
-// //----------------------------unit-test-end------------------
 
             return connection;
         }
@@ -192,33 +125,11 @@ namespace ExcelExport
             {
                 OracleCommand command = new OracleCommand(query, connection);
 
-
-
-                    //if (connectionx.State == ConnectionState.Open)
-                    //{
-                    //    Console.WriteLine("Connectionx  on!");
-                    //}
-
-                    //{
-                    //    Console.WriteLine("Connectionx fckd!");
-
-                    //}
-
                     using (OracleDataAdapter adapter = new OracleDataAdapter(command))
                     {
-                        // Fill the DataTable with the resultset from the adapter
+                        // Fill the DataTable with the result-set from the adapter
                         adapter.Fill(dataTable);
-                       
-                        //return dataTable;
-
-                        // Export the DataTable to Excel
-                        // Console.WriteLine("call Exported at: " + currentDateTime);
-                        // ExportToExcel(dataTable);
-
                     }
-               // }
-                //return dataTable;
-                //}
             }
 
 
