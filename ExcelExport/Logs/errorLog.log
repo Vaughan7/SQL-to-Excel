@@ -1,2 +1,202 @@
 2023-12-05 09:01:12,196 ERROR sqltoexcel.Program - Could not find a part of the path 'C:\Users\Klaaste Vaughan\Documents\SQLReport.xlsx'.
 2023-12-05 10:10:22,263 ERROR sqltoexcel.Program - Could not find a part of the path 'C:\Reports\SQLReport.xlsx'.
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 157
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 159
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 159
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 159
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 161
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 161
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 160
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 172
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 174
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 176
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 176
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 179
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 179
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 179
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 193
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 193
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 194
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 194
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 194
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 195
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 195
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 206
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 208
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 208
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 208
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 209
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 215
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 215
+Error: System.InvalidOperationException: Operation is not valid due to the current state of the object.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 213
+Error: System.InvalidOperationException: Operation is not valid due to the current state of the object.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 223
+Error: System.InvalidOperationException: Operation is not valid due to the current state of the object.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 225
+Error: System.InvalidOperationException: Operation is not valid due to the current state of the object.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 234
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 232
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 232
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 232
+Error: System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'OracleConnectionInternal'.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 232
+Error: System.InvalidOperationException: Operation is not valid due to the current state of the object.
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 232
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00923: FROM keyword not found where expected
+https://docs.oracle.com/error-help/db/ora-00923/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 207
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00923: FROM keyword not found where expected
+https://docs.oracle.com/error-help/db/ora-00923/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 210
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00923: FROM keyword not found where expected
+https://docs.oracle.com/error-help/db/ora-00923/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 210
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00923: FROM keyword not found where expected
+https://docs.oracle.com/error-help/db/ora-00923/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 210

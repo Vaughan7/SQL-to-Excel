@@ -140,3 +140,4 @@ C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\ob
 C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\obj\Debug\net7.0\ExcelExport.pdb
 C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\obj\Debug\net7.0\ExcelExport.genruntimeconfig.cache
 C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\obj\Debug\net7.0\ref\ExcelExport.dll
+C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\bin\Debug\net7.0\Newtonsoft.Json.dll
