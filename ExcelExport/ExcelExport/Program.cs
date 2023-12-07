@@ -1,8 +1,18 @@
-﻿using System.Data;
-//using Oracle.ManagedDataAccess.Client;
+using System.Data;
+using Oracle.ManagedDataAccess.Client;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
-
+//using NPOI.OpenXmlFormats.Dml.
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel.Charts;
+using NPOI.SS.Util;
+using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Drawing;
+using IndexedColors = NPOI.SS.UserModel.IndexedColors;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using System.Drawing.Text;
+using MathNet.Numerics;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace ExcelExport
 {
