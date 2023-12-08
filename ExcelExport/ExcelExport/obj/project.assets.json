@@ -3798,23 +3798,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bill Ikela\\.nuget\\packages\\": {},
+    "C:\\Users\\Klaaste Vaughan\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bill Ikela\\Documents\\code\\repos\\SQL-to-Excel\\ExcelExport\\ExcelExport\\ExcelExport.csproj",
+      "projectUniqueName": "C:\\Users\\Klaaste Vaughan\\source\\repos\\SQL-to-Excel-main\\ExcelExport\\ExcelExport\\ExcelExport.csproj",
       "projectName": "ExcelExport",
-      "projectPath": "C:\\Users\\Bill Ikela\\Documents\\code\\repos\\SQL-to-Excel\\ExcelExport\\ExcelExport\\ExcelExport.csproj",
-      "packagesPath": "C:\\Users\\Bill Ikela\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bill Ikela\\Documents\\code\\repos\\SQL-to-Excel\\ExcelExport\\ExcelExport\\obj\\",
+      "projectPath": "C:\\Users\\Klaaste Vaughan\\source\\repos\\SQL-to-Excel-main\\ExcelExport\\ExcelExport\\ExcelExport.csproj",
+      "packagesPath": "C:\\Users\\Klaaste Vaughan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Klaaste Vaughan\\source\\repos\\SQL-to-Excel-main\\ExcelExport\\ExcelExport\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bill Ikela\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Klaaste Vaughan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

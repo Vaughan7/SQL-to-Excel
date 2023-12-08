@@ -115,7 +115,6 @@ namespace ExcelExport
 
         }
 
-
         internal DataTable ExecuteQuery(string query)
         {
           

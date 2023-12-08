@@ -200,3 +200,48 @@ https://docs.oracle.com/error-help/db/ora-00923/
    at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
    at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
    at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Bill Ikela\Documents\code\repos\SQL-to-Excel\ExcelExport\ExcelExport\QueryManager.cs:line 210
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00923: FROM keyword not found where expected
+https://docs.oracle.com/error-help/db/ora-00923/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Klaaste Vaughan\source\repos\SQL-to-Excel-main\ExcelExport\ExcelExport\QueryManager.cs:line 130
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00911: invalid character
+https://docs.oracle.com/error-help/db/ora-00911/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Klaaste Vaughan\source\repos\SQL-to-Excel-main\ExcelExport\ExcelExport\QueryManager.cs:line 130
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00911: invalid character
+https://docs.oracle.com/error-help/db/ora-00911/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Klaaste Vaughan\source\repos\SQL-to-Excel-main\ExcelExport\ExcelExport\QueryManager.cs:line 130
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00911: invalid character
+https://docs.oracle.com/error-help/db/ora-00911/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Klaaste Vaughan\source\repos\SQL-to-Excel-main\ExcelExport\ExcelExport\QueryManager.cs:line 130
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00911: invalid character
+https://docs.oracle.com/error-help/db/ora-00911/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Klaaste Vaughan\source\repos\SQL-to-Excel-main\ExcelExport\ExcelExport\QueryManager.cs:line 130
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00923: FROM keyword not found where expected
+https://docs.oracle.com/error-help/db/ora-00923/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Klaaste Vaughan\source\repos\SQL-to-Excel-main\ExcelExport\ExcelExport\QueryManager.cs:line 130
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00923: FROM keyword not found where expected
+https://docs.oracle.com/error-help/db/ora-00923/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Klaaste Vaughan\source\repos\SQL-to-Excel-main\ExcelExport\ExcelExport\QueryManager.cs:line 130
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00911: invalid character
+https://docs.oracle.com/error-help/db/ora-00911/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Klaaste Vaughan\source\repos\SQL-to-Excel-main\ExcelExport\ExcelExport\QueryManager.cs:line 130
+Error: Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-00972: identifier is too long
+https://docs.oracle.com/error-help/db/ora-00972/
+   at OracleInternal.ServiceObjects.OracleFailoverMgrImpl.OnError(OracleConnection connection, CallHistoryRecord chr, Object mi, Exception ex, Boolean bTopLevelCall, Boolean& bCanRecordNewCall)
+   at Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable dataTable)
+   at ExcelExport.QueryManager.ExecuteQuery(String query) in C:\Users\Klaaste Vaughan\source\repos\SQL-to-Excel-main\ExcelExport\ExcelExport\QueryManager.cs:line 130
