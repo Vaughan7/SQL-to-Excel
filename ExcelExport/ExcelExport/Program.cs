@@ -1,4 +1,4 @@
-using System.Data;
+﻿using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
@@ -22,6 +22,9 @@ namespace ExcelExport
         
         static void Main(string[] args)
         {      
+
+            //Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory); //change directory to exe file location (for task-scheduler)
+
             QueryManager obj = new QueryManager();//create query manager instance
             obj.connection = obj.ConnectDB();// connect to databse
 
@@ -38,7 +41,6 @@ namespace ExcelExport
                     string query = File.ReadAllText(sqlFile);
                     string fileName = System.IO.Path.GetFileNameWithoutExtension(sqlFile);
                     ExportToExcel(obj.ExecuteQuery(query), fileName);
-                    Console.WriteLine("1st done");
                 }
                 catch (Exception ex)
                 {
@@ -52,11 +54,15 @@ namespace ExcelExport
             watch.Stop();
             Console.WriteLine($"Execution Time: {watch.Elapsed} ms");
 
-            using (StreamWriter timeWriter = new StreamWriter(@"..\..\..\..\logs\Timer.log", true))
+            using (StreamWriter timeWriter = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\logs\Timer.log", true))
             {       
                 timeWriter.WriteLine($"Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm")} Execution Time: {watch.Elapsed} ms");
             }
 
+       
+
+            // Console.Write("write some to close console: ");
+            // Console.ReadLine();
         }
 
         private static void ExportToExcel(DataTable dataTable,string fileName)
@@ -146,11 +152,11 @@ namespace ExcelExport
         
             // Save the workbook to a file
             //using (FileStream fs = new FileStream(@"C:\Users\Klaaste Vaughan\Documents\SQLReport.xlsx", FileMode.Create, FileAccess.Write))
-            using (FileStream fs = new FileStream(@"..\..\..\..\Reports\" + fileName + ".xlsx", FileMode.Create, FileAccess.Write))
+            using (FileStream fs = new FileStream(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\Reports\" + fileName + ".xlsx", FileMode.Create, FileAccess.Write))
             {
                 workbook.Write(fs);
             }
-            Console.WriteLine("Excel file generated successfully.");
+            Console.WriteLine("Excel file for "+fileName+ " generated successfully.");
         }
     }
 }

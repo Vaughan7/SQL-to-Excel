@@ -37,7 +37,7 @@ namespace ExcelExport
             //get config
             try
             {
-                string jsonString = File.ReadAllText("../../../../config/config.json");
+                string jsonString = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "../../../../config/config.json");
 
                 dynamic? jsonObject = JsonConvert.DeserializeObject(jsonString);
 
@@ -73,41 +73,15 @@ namespace ExcelExport
         public string[] GetQueryFiles()
         {
 
-//add try catch ***
-            string folderPath = "../../../../Queries";
+            //add try catch ***
+            string folderPath = AppDomain.CurrentDomain.BaseDirectory + "../../../../Queries";
 
             // Get all SQL files from the specified folder
             return Directory.GetFiles(folderPath, "*.sql");
         }
 
 
-        internal DataTable GetDataTable()
-        {
-
-            string folderPath = "../../../../Queries";
-
-            // Get all SQL files from the specified folder
-            string[] sqlFiles = Directory.GetFiles(folderPath, "*.sql");
-
-            foreach (string sqlFile in sqlFiles)
-            {
-                try
-                {
-                    string query = File.ReadAllText(sqlFile);
-                    //Console.WriteLine($"Query from file '{sqlFile}':\n{query}\n");
-                    return ExecuteQuery(query);
-
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error reading file '{sqlFile}': {ex.Message}");
-                    //log to file  ***
-                    ///stop program ***
-                }
-            }
-            return new DataTable();
-        }
-
+       
 
         /** COMING SOON **/
         internal void GetViews()
@@ -136,7 +110,7 @@ namespace ExcelExport
             {
                 Console.WriteLine("Error: " + ex.Message);
 
-                using (StreamWriter errorWriter = new StreamWriter(@"..\..\..\..\logs\ErrorLog.log", true))
+                using (StreamWriter errorWriter = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\logs\ErrorLog.log", true))
                 {
                     errorWriter.WriteLine("Error: " + ex.ToString());
                     //errorWriter.WriteLine("Current Time: " + currentDateTime);
@@ -156,5 +130,18 @@ namespace ExcelExport
 
         } */
 
+
+ /**---------TO-DO---------------
+  * -Turn paths to fields or stored in a function
+  * -reformat error logger
+  * -exception handling
+  * -error handling
+  * 
+  * 
+  * 
+  * 
+  */
+
+  
     }
 }
