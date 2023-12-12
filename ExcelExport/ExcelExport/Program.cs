@@ -89,10 +89,10 @@ namespace ExcelExport
             headerStyle.FillPattern = FillPattern.SolidForeground;
         
             //Header Border Styling
-            headerStyle.BorderBottom = BorderStyle.Medium;
-            headerStyle.BorderTop = BorderStyle.Medium;
-            headerStyle.BorderLeft = BorderStyle.Medium;
-            headerStyle.BorderRight = BorderStyle.Medium;
+            headerStyle.BorderBottom = BorderStyle.Thin;
+            headerStyle.BorderTop = BorderStyle.Thin;
+            headerStyle.BorderLeft = BorderStyle.Thin;
+            headerStyle.BorderRight = BorderStyle.Thin;
         
             // Create header row
             IRow headerRow = sheet1.CreateRow(0);
