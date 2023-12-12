@@ -109,13 +109,7 @@ namespace ExcelExport
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
-
-                using (StreamWriter errorWriter = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\logs\ErrorLog.log", true))
-                {
-                    errorWriter.WriteLine("Error: " + ex.ToString());
-                    //errorWriter.WriteLine("Current Time: " + currentDateTime);
-                    logger.Error(String.Format(ex.Message));
-                }
+                logger.Error(String.Format(ex.Message));                
             }
 
             return dataTable;
