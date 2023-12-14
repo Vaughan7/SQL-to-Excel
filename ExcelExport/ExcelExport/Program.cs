@@ -57,9 +57,7 @@ namespace ExcelExport
             using (StreamWriter timeWriter = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\logs\Timer.log", true))
             {       
                 timeWriter.WriteLine($"Current Time: {DateTime.Now.ToString("MM/dd/yyyy HH:mm")} Execution Time: {watch.Elapsed} ms");
-            }
-
-       
+            }       
 
             // Console.Write("write some to close console: ");
             // Console.ReadLine();
@@ -103,9 +101,8 @@ namespace ExcelExport
                 headerRow.CreateCell(i).SetCellValue(dataTable.Columns[i].ColumnName);
                 headerTempCell = headerRow.GetCell(i);
                 headerTempCell.CellStyle = headerStyle;
-                sheet1.AutoSizeColumn(headerTempCell.ColumnIndex);
             }
-            //int a = dataTable.Columns.Count + 5;
+            
             //Create Data Stylers
             XSSFCellStyle dataStyle1 = (XSSFCellStyle)workbook.CreateCellStyle();
             XSSFCellStyle dataStyle2 = (XSSFCellStyle)workbook.CreateCellStyle();
@@ -134,21 +131,24 @@ namespace ExcelExport
             for (int i = 0; i < dataTable.Rows.Count; i++)
             {
                 IRow dataRow = sheet1.CreateRow(i + 1);
-                
-        
+                      
                 for (int j = 0; j < dataTable.Columns.Count; j++)
                 {
                     dataRow.CreateCell(j).SetCellValue(dataTable.Rows[i][j].ToString());
                     dataTempCell = dataRow.GetCell(j);
-                    sheet1.AutoSizeColumn(dataTempCell.ColumnIndex);
-        
+                    
                     if (dataTempCell.RowIndex.IsEven())
                         dataTempCell.CellStyle = dataStyle1;                    
                     else
                         dataTempCell.CellStyle = dataStyle2;
                 }
             }
-        
+
+            //Resize Columns
+            for (int i = 0;i < dataTable.Columns.Count;i++)
+            {
+                sheet1.AutoSizeColumn(i);
+            }        
         
             // Save the workbook to a file
             //using (FileStream fs = new FileStream(@"C:\Users\Klaaste Vaughan\Documents\SQLReport.xlsx", FileMode.Create, FileAccess.Write))
