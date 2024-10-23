@@ -1,0 +1,197 @@
+{
+    "JsonValues": {
+
+        "Queries" : { 
+            "Number of Entities Registered during Quarter (Q2)": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Total Number of Active Business (Q2)",
+                "Body": "Good day Lembey,\n\nPlease find attached the report as requested. Please do confirm with me that you have received this email and that the report is in order\n\nThis email and report was automatically generated.\n\nKind Regards\nVaughan",
+                "Pivot Table": true,
+                "Row labels": [2],
+                "Column Labels": [],
+                "Value Labels": [0],
+                "Value Functions": ["Count"],
+                "Pivot Table 2": true,                
+                "Row labels 2": [1],
+                "Column Labels 2": [],
+                "Value Labels 2": [0],
+                "Value Functions 2": ["Count"],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+            }, 
+            "Overall Total Number of Active Businesses as at 30 SEP 2024": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Overall Total Number of Active Businesses as at 30 SEP 2024",
+                "Body": "Good day Lembey,\n\nPlease find attached the report as requested. Please do confirm with me that you have received this email and that the report is in order\n\nThis email and report was automatically generated.\n\nKind Regards\nVaughan",
+                "Pivot Table": true,
+                "Row labels": [2],
+                "Column Labels": [],
+                "Value Labels": [0],
+                "Value Functions": ["Count"],
+                "Pivot Table 2": true,                
+                "Row labels 2": [1],
+                "Column Labels 2": [],
+                "Value Labels 2": [0],
+                "Value Functions 2": ["Count"],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+            },
+            "Beneficial Ownership Declaration Submissions (Q2)": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Beneficial ownership Declaration submissions Report",
+                "Body": "Good day Lembey,\n\nPlease find attached the report as requested. Please do confirm with me that you have received this email and that the report is in order\n\nThis email and report was automatically generated.\n\nKind Regards\nVaughan",
+                "Pivot Table": true,
+                "Row labels": [8],
+                "Column Labels": [1],
+                "Value Labels": [11],
+                "Value Functions": ["Count"],
+                "Pivot Table 2": true,                
+                "Row labels 2": [9],
+                "Column Labels 2": [12],
+                "Value Labels 2": [14],
+                "Value Functions 2": ["Count"],
+                "Pivot Table 3": true,                
+                "Row labels 3": [6],
+                "Column Labels 3": [13],
+                "Value Labels 3": [15],
+                "Value Functions 3": ["Count"],
+                "Duplicate Columns": [11, 12, 13, 14, 15],
+                "Collapse Fields" : false
+            },
+            "Deregistrations (Q2)": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Defensive Names and Deregistrations Report",
+                "Body": "Good day Lembey,\n\nPlease find attached the report as requested. Please do confirm with me that you have received this email and that the report is in order\n\nThis email and report was automatically generated.\n\nKind Regards\nVaughan",
+                "Pivot Table": true,
+                "Row labels": [1],
+                "Column Labels": [4],
+                "Value Labels": [0],
+                "Value Functions": ["Count"],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+            },
+            "Defensive Names (Q2)": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Defensive Names Report",
+                "Body": "Good day Lembey,\n\nPlease find attached the report as requested. Please do confirm with me that you have received this email and that the report is in order\n\nThis email and report was automatically generated.\n\nKind Regards\nVaughan",
+                "Pivot Table": true,
+                "Row labels": [1],
+                "Column Labels": [4],
+                "Value Labels": [0],
+                "Value Functions": ["Count"],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+            },
+            "Industry Type Ranking (Q2)": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Industry Type Ranking Report",
+                "Body": "Good day Lembey,\n\nPlease find attached the report as requested. Please do confirm with me that you have received this email and that the report is in order\n\nThis email and report was automatically generated.\n\nKind Regards\nVaughan",
+                "Pivot Table": true,
+                "Row labels": [1, 0],
+                "Column Labels": [2],
+                "Value Labels": [3],
+                "Value Functions": ["Count"],
+                "Duplicate Columns": [],
+                "Collapse Fields" : true
+            },
+            "Industry Type Ranking To Date": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Industry Type Ranking Report",
+                "Body": "Good day Lembey,\n\nPlease find attached the report as requested. Please do confirm with me that you have received this email and that the report is in order\n\nThis email and report was automatically generated.\n\nKind Regards\nVaughan",
+                "Pivot Table": true,
+                "Row labels": [1, 0],
+                "Column Labels": [2],
+                "Value Labels": [3],
+                "Value Functions": ["Count"],
+                "Duplicate Columns": [],
+                "Collapse Fields" : true
+            },
+            "Owners by Age and Sex (Q2)": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Entity Owners by Age and Sex",
+                "Body": "Let me know if you get this email",
+                "Pivot Table": true,
+                "Row labels": [1],
+                "Column Labels": [0],
+                "Value Labels": [0],
+                "Value Functions": ["Count"],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+            },
+            "Turnaround Times": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Turnaround Times Report",
+                "Body": "Let me know if you get this email",
+                "Pivot Table": true,
+                "Row labels": [1],
+                "Column Labels": [0],
+                "Value Labels": [0],
+                "Value Functions": ["Count"],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+            },
+          "Waiver Cashbook Summary from 01 Jan 2024": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Daily Cashbook Summary - Waiver",
+                "Body": "Let me know if you get this email",
+                "Pivot Table": false,
+                "Row labels": [],
+                "Column Labels": [],
+                "Value Labels": [],
+                "Value Functions": [],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+          },
+            "Waiver Cashbook Summary from 01 Nov 2023": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Daily Cashbook Summary - Waiver (From Start)",
+                "Body": "Good Day Paulette,\n\nPlease find attached the reports as requested. If any changes are required, don't hesitate to contact me.\n\nKind Regards,\nVaughan",
+                "Pivot Table": false,
+                "Row labels": [],
+                "Column Labels": [],
+                "Value Labels": [],
+                "Value Functions": [],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+            },
+            "Weekly Flagged Transactions - Outdated": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Weekly Flagged Transactions",
+                "Body": "Good Day Ms. Husselmann,\n\nPlease find attached the reports as requested. Please do confirm with me that you have received this email and that the report is in order\nThis email and report was automatically generated.\n\nKind Regards,\nVaughan",
+                "Pivot Table": true,
+                "Row labels": [18, 5],
+                "Column Labels": [16],
+                "Value Labels": [10, 14],
+                "Value Functions": ["Sum", "Count"],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+            },
+            "Weekly Payment Exemptions": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Weekly Flagged Transactions",
+                "Body": "Good Day,\n\nPlease find attached the report as requested. Please do confirm with me that you have received this email and that the report is in order.\n\nThis email and report was automatically generated.\n\nKind Regards\nVaughan",
+                "Pivot Table": true,
+                "Row labels": [18, 5],
+                "Column Labels": [16],
+                "Value Labels": [10, 14],
+                "Value Functions": ["Sum", "Count"],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+            },
+            "Revenue Data for Receipts": {
+                "Address": ["vaughank@bipa.na"],
+                "Subject": "Revenue Data for Receipts",
+                "Body": "Good Day,\n\nPlease find attached the report as requested. Please do confirm with me that you have received this email and that the report is in order.\n\nThis email and report was automatically generated.\n\nKind Regards\nVaughan",
+                "Pivot Table": false,
+                "Row labels": [],
+                "Column Labels": [],
+                "Value Labels": [],
+                "Value Functions": [],
+                "Duplicate Columns": [],
+                "Collapse Fields" : false
+            }            
+        }       
+
+    }
+    
+}
