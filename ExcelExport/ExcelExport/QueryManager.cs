@@ -50,19 +50,23 @@ namespace ExcelExport
                 connection.Open();
                 // Check the connection state
                 if (connection.State == ConnectionState.Open)
-                    {Console.WriteLine("Connection successful!");
-                    }
+                {
+                    Console.WriteLine("Connection successful!");
+                }
 
             }
             catch(FileNotFoundException)
             {
                 //log error ***
                 //terminate program ***
-            }catch (NullReferenceException){
+            }
+            catch (NullReferenceException)
+            {
                 //null error
-            }catch (Exception ex){
-                    Console.WriteLine($"Failed to connect to database: {ex.Message}");
-                    logger.Error(String.Format(ex.Message));
+            }catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to connect to database: {ex.Message}");
+                logger.Error(String.Format(ex.Message));
             }
 
             return connection;
@@ -79,10 +83,7 @@ namespace ExcelExport
             // Get all SQL files from the specified folder
             return Directory.GetFiles(folderPath, "*.sql");
         }
-
-
        
-
         /** COMING SOON **/
         internal void GetViews()
         {
@@ -104,16 +105,21 @@ namespace ExcelExport
                         adapter.Fill(dataTable);
                     }
             }
-
-
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
-                logger.Error(String.Format(ex.Message));                
+                //Console.WriteLine($"{DateTime.Now.ToString("MM/dd/yyyy HH:mm")}Error: " + ex.Message);
+                logger.Error(String.Format(ex.Message));
+
+
+                //using (StreamWriter errorWriter = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\logs\ErrorLog.log", true))
+                //{
+                //    //errorWriter.WriteLine($"{DateTime.Now.ToString("MM/dd/yyyy HH:mm")} Error: " + ex.ToString());
+                //    //errorWriter.WriteLine("Current Time: " + currentDateTime);
+                //    //logger.Error(String.Format(ex.Message));
+                //}
             }
 
             return dataTable;
-
         }
 
         /**
@@ -130,8 +136,8 @@ namespace ExcelExport
   * -reformat error logger
   * -exception handling
   * -error handling
-  * 
-  * 
+  * -Emailing
+  * -Formattting Excel
   * 
   * 
   */
