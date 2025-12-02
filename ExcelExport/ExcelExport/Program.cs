@@ -1,43 +1,18 @@
-﻿using System.Data;
-using Oracle.ManagedDataAccess.Client;
-using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
+﻿extern alias Interop2013;
+using ClosedXML.Excel;
+using MathNet.Numerics;
 //using NPOI.OpenXmlFormats.Dml.
 using NPOI.HSSF.UserModel;
-using NPOI.SS.UserModel.Charts;
-using NPOI.SS.Util;
-using DocumentFormat.OpenXml.Spreadsheet;
-using DocumentFormat.OpenXml.Drawing;
-using IndexedColors = NPOI.SS.UserModel.IndexedColors;
-using DocumentFormat.OpenXml.Office2010.Excel;
-using System.Drawing.Text;
-using MathNet.Numerics;
-using DocumentFormat.OpenXml.Wordprocessing;
-using log4net.Appender;
-using NPOI.SS.Formula.Functions;
-using System.Net.Mail;
-using System.Net;
-using NPOI.HPSF;
-using Microsoft.Office.Interop.Excel;
-using Range = Microsoft.Office.Interop.Excel.Range;
-using DataTable = System.Data.DataTable;
-using PivotCache = Microsoft.Office.Interop.Excel.PivotCache;
-using Workbook = Microsoft.Office.Interop.Excel.Workbook;
-using NPOI.XSSF.Streaming;
-using Newtonsoft.Json;
-using System.Text.Json;
-using DocumentFormat.OpenXml.Office2016.Excel;
-using NPOI.OpenXmlFormats.Spreadsheet;
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
-
-using NPOI.OpenXml4Net.OPC;
-//using NPOI.SS.UserModel;
-//using NPOI.SS.Util;
-//using NPOI.OpenXmlFormats.Spreadsheet;
-using NPOI.SS;
 using NPOI.OOXML.XSSF.UserModel;
-using NPOI.XSSF.Model;
-using System.Collections.Generic;
+using NPOI.OpenXml4Net.OPC;
+using NPOI.OpenXml4Net.Util;
+using NPOI.OpenXmlFormats.Spreadsheet;
+using NPOI.SS.UserModel;
+using NPOI.SS.Util;
+using NPOI.XSSF.UserModel;
+using SixLabors.ImageSharp.PixelFormats;
+using DataTable = System.Data.DataTable;
+using IndexedColors = NPOI.SS.UserModel.IndexedColors;
 
 namespace ExcelExport
 {
@@ -68,7 +43,8 @@ namespace ExcelExport
                     //Console.WriteLine(query);
                     //obj.ExecuteQuery(query);
                     ExportToExcelWithoutPivotTable(obj.ExecuteQuery(query), fileName);
-                    SendEmail(fileName);
+                    //AddSlicer(fileName);
+                    //SendEmail(fileName);
                 }
                 catch (Exception ex)
                 {
@@ -95,7 +71,6 @@ namespace ExcelExport
                 timeWriter.WriteLine($"Current Time: {currentDateTime} - Execution Time: {watch.Elapsed} ms");
             }
 
-            // Console.Write("write some to close console: ");
             //Console.ReadLine();
         }
 
@@ -120,7 +95,8 @@ namespace ExcelExport
             headerStyle.SetFont(headerFont);
 
             //Header Background Color Styling
-            byte[] headerColor = new byte[] { 68, 114, 196 };
+            //byte[] headerColor = new byte[] { 68, 114, 196 };
+            Rgb24 headerColor = new Rgb24(68, 114, 196);
             headerStyle.SetFillForegroundColor(new XSSFColor(headerColor));
             headerStyle.FillPattern = FillPattern.SolidForeground;
 
@@ -134,6 +110,7 @@ namespace ExcelExport
             IRow headerRow = sheet1.CreateRow(0);
             ICell headerTempCell;
 
+            //Set Column Header Size
             for (int i = 0; i < dataTable.Columns.Count; i++)
             {
                 headerRow.CreateCell(i).SetCellValue(dataTable.Columns[i].ColumnName);
@@ -161,11 +138,13 @@ namespace ExcelExport
             numericStyle.SetDataFormat(dataFormat.GetFormat("0"));
 
             //Data Background Color Styling
-            byte[] accent1 = new byte[3] { 221, 235, 247 };
+            //byte[] accent1 = new byte[3] { 221, 235, 247 };
+            Rgb24 accent1 = new Rgb24(221, 235, 247);
             dataStyle1.SetFillForegroundColor(new XSSFColor(accent1));
             dataStyle1.FillPattern = FillPattern.SolidForeground;
 
-            byte[] accent2 = new byte[3] { 255, 255, 255 };
+            //byte[] accent2 = new byte[3] { 255, 255, 255 };
+            Rgb24 accent2 = new Rgb24(255, 255, 255);
             dataStyle2.SetFillForegroundColor(new XSSFColor(accent2));
             dataStyle2.FillPattern = FillPattern.SolidForeground;
 
@@ -190,7 +169,7 @@ namespace ExcelExport
                     if (double.TryParse(dataTempCell.StringCellValue, out _) && dataTempCell.StringCellValue != "")
                     {
                         dataTempCell.SetCellValue(double.Parse(dataTempCell.StringCellValue));
-                        dataTempCell.CellStyle.DataFormat = HSSFDataFormat.GetBuiltinFormat("#,##0");
+                        //dataTempCell.CellStyle.DataFormat = HSSFDataFormat.GetBuiltinFormat("#,##0");
                     }
 
                     //if(DateUtil.IsCellDateFormatted(dataTempCell))
@@ -207,7 +186,7 @@ namespace ExcelExport
                 }
             }
 
-            //Resize Columns
+            //Resize Columns again after adding data
             for (int i = 0; i < dataTable.Columns.Count; i++)
             {
                 sheet1.AutoSizeColumn(i);
@@ -216,6 +195,7 @@ namespace ExcelExport
             //Create Pivot Table and add to workbook
             AddPivotTable(workbook, sheet1, fileName);
 
+            //AddExistingSheetToNewFile(workbook);
             
 
 
@@ -243,7 +223,7 @@ namespace ExcelExport
 
             CellReference topLeft = new CellReference(firstRow, firstCol);
             CellReference botRight = new CellReference(lastRow, lastCol - 1);
-            CellReference location = new CellReference("A3");
+            CellReference location = new CellReference("A5");
             AreaReference areaReference = new AreaReference(topLeft, botRight);
 
             XSSFPivotTable pivotTable1 = sheet2.CreatePivotTable(areaReference, location, dataSheet);
@@ -271,41 +251,68 @@ namespace ExcelExport
                             if (kvp.Value.valueFunctions[i] == DataConsolidateFunction.COUNT.Name)
                             {
                                 pivotTable1.AddColumnLabel(DataConsolidateFunction.COUNT, kvp.Value.valueLabels[i], "Count of " + pivotHeaderCell.StringCellValue);
-                                pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.valueLabels[i]).numFmtId = 3;
-                                //pivotTable1.GetCTPivotTableDefinition().add
+
+                                var dataFields = pivotTable1.GetCTPivotTableDefinition().dataFields.dataField;
+                                if (dataFields.Count > 0)
+                                {
+                                    // Only set numFmtId for the last added field
+                                    dataFields[dataFields.Count - 1].numFmtId = 3;
+                                }
                             }
 
                             else if (kvp.Value.valueFunctions[i] == DataConsolidateFunction.SUM.Name)
                             {
                                 pivotTable1.AddColumnLabel(DataConsolidateFunction.SUM, kvp.Value.valueLabels[i], "Sum of " + pivotHeaderCell.StringCellValue);
-                                pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.valueLabels[i]).numFmtId = 3;
+
+                                var dataFields = pivotTable1.GetCTPivotTableDefinition().dataFields.dataField;
+                                if (dataFields.Count > 0)
+                                {
+                                    // Only set numFmtId for the last added field
+                                    dataFields[dataFields.Count - 1].numFmtId = 3;
+                                }
+
                             }
 
                             else if (kvp.Value.valueFunctions[i] == DataConsolidateFunction.AVERAGE.Name)
                             {
                                 pivotTable1.AddColumnLabel(DataConsolidateFunction.AVERAGE, kvp.Value.valueLabels[i], "Average of " + pivotHeaderCell.StringCellValue);
-                                pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.valueLabels[i]).numFmtId = 3;
+
+                                var dataFields = pivotTable1.GetCTPivotTableDefinition().dataFields.dataField;
+                                if (dataFields.Count > 0)
+                                {
+                                    // Only set numFmtId for the last added field
+                                    dataFields[dataFields.Count - 1].numFmtId = 2;
+                                }
                             }
                         }
 
+                        
                         //Add rows to pivot table
                         for (int i = 0; i < kvp.Value.rowLabels.Length; i++)
                         {
                             if (kvp.Value.rowLabels.Length > 0)
                             {
                                 pivotTable1.AddRowLabel(kvp.Value.rowLabels[i]);
+                               
                                 pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.rowLabels[i]).sortType = ST_FieldSortType.ascending;
 
                                 //CollapseFields(pivotTable1, dataSheet, fileName);
 
-                                //if (kvp.Value.rowLabels.Intersect(kvp.Value.valueLabels).Any())
-                                //{
-                                //    pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.rowLabels[i]).dataField = true;
-                                //    //pivotTable1.AddDataColumn(kvp.Value.rowLabels[i], true);
-                                //}
                             }
                         }
 
+                        if (kvp.Value.moveΣValue)
+                        {
+                            //Set default for Σ values to row label
+                            pivotTable1.GetCTPivotTableDefinition().dataOnRows = true;
+
+                            //Add new row field for data fields for Σ values
+                            pivotTable1.GetCTPivotTableDefinition().rowFields.AddNewField().x = -2;
+                            pivotTable1.GetCTPivotTableDefinition().rowFields.count = (uint)(kvp.Value.rowLabels.Length + 1);
+
+                            //Remove data field from column
+                            pivotTable1.GetCTPivotTableDefinition().colFields.field.Clear();
+                        }
 
 
                         //Add columns to pivot table
@@ -316,7 +323,21 @@ namespace ExcelExport
                                 AddColLabel(pivotTable1, kvp.Value.columnLabels[i], areaReference, lastCol, lastRow);
                                 //pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.columnLabels[i]).dataField = true;
                             }
-                        }                      
+                        }
+
+                        //Add Report Filter to Pivot Table
+                        if (kvp.Value.filter.Length > 0)
+                        {
+                            for (int i = 0; i < kvp.Value.filter.Length; i++)
+                            {
+                                pivotTable1.AddReportFilter(kvp.Value.filter[i]);
+                            }
+                        }
+
+                        //pivotTable1.AddReportFilter(0);
+                        //pivotTable1.AddReportFilter(22);
+
+                       // CollapseFields(pivotTable1, dataSheet, fileName);                
 
                     }
 
@@ -340,19 +361,37 @@ namespace ExcelExport
                             if (kvp.Value.valueFunctions2[i] == DataConsolidateFunction.COUNT.Name)
                             {
                                 pivotTable2.AddColumnLabel(DataConsolidateFunction.COUNT, kvp.Value.valueLabels2[i], "Count of " + pivotHeaderCell.StringCellValue);
-                                //pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.valueLabels[i]).dataField = true;
+
+                                var dataFields = pivotTable2.GetCTPivotTableDefinition().dataFields.dataField;
+                                if (dataFields.Count > 0)
+                                {
+                                    // Only set numFmtId for the last added field
+                                    dataFields[dataFields.Count - 1].numFmtId = 3;
+                                }
                             }
 
                             else if (kvp.Value.valueFunctions2[i] == DataConsolidateFunction.SUM.Name)
                             {
                                 pivotTable2.AddColumnLabel(DataConsolidateFunction.SUM, kvp.Value.valueLabels2[i], "Sum of " + pivotHeaderCell.StringCellValue);
-                                //pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.valueLabels[i]).dataField = true;
+
+                                var dataFields = pivotTable2.GetCTPivotTableDefinition().dataFields.dataField;
+                                if (dataFields.Count > 0)
+                                {
+                                    // Only set numFmtId for the last added field
+                                    dataFields[dataFields.Count - 1].numFmtId = 3;
+                                }
                             }
 
                             else if (kvp.Value.valueFunctions2[i] == DataConsolidateFunction.AVERAGE.Name)
                             {
                                 pivotTable2.AddColumnLabel(DataConsolidateFunction.AVERAGE, kvp.Value.valueLabels2[i], "Average of " + pivotHeaderCell.StringCellValue);
-                                //pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.valueLabels[i]).dataField = true;
+
+                                var dataFields = pivotTable2.GetCTPivotTableDefinition().dataFields.dataField;
+                                if (dataFields.Count > 0)
+                                {
+                                    // Only set numFmtId for the last added field
+                                    dataFields[dataFields.Count - 1].numFmtId = 2;
+                                }
                             }
                         }
 
@@ -367,6 +406,25 @@ namespace ExcelExport
                             }
                         }
 
+                        if (kvp.Value.moveΣValue2)
+                        {
+                            //Set default for Σ values to row label
+                            pivotTable2.GetCTPivotTableDefinition().dataOnRows = true;
+
+                            var ctPivot = pivotTable2.GetCTPivotTableDefinition();
+                            if (ctPivot.rowFields == null)
+                            {
+                                ctPivot.rowFields = new CT_RowFields();
+                            }
+
+                            //Add new row field for data fields for Σ values
+                            pivotTable2.GetCTPivotTableDefinition().rowFields.AddNewField().x = -2;
+                            pivotTable2.GetCTPivotTableDefinition().rowFields.count = (uint)(kvp.Value.rowLabels2.Length + 1);
+
+                            //Remove data field from column
+                            pivotTable2.GetCTPivotTableDefinition().colFields.field.Clear();
+                        }
+
                         //Add columns to 2nd pivot table
                         if (kvp.Value.columnLabels2.Length > 0)
                         {
@@ -374,12 +432,12 @@ namespace ExcelExport
                             {
                                 AddColLabel(pivotTable2, kvp.Value.columnLabels2[i], areaReference, lastCol, lastRow);
                                 //pivotTable2.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.columnLabels2[i]).dataField = true;
-                            }
-                        }
 
-                        
+                            }
+                        }             
                     }
 
+                    //Pivot Table 3
                     if (kvp.Value.pivotTable3)
                     {
                         numberOfSheets++;
@@ -400,18 +458,39 @@ namespace ExcelExport
                             {
                                 pivotTable3.AddColumnLabel(DataConsolidateFunction.COUNT, kvp.Value.valueLabels3[i], "Count of " + pivotHeaderCell.StringCellValue);
                                 //pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.valueLabels[i]).dataField = true;
+
+                                var dataFields = pivotTable3.GetCTPivotTableDefinition().dataFields.dataField;
+                                if (dataFields.Count > 0)
+                                {
+                                    // Only set numFmtId for the last added field
+                                    dataFields[dataFields.Count - 1].numFmtId = 3;
+                                }
                             }
 
                             else if (kvp.Value.valueFunctions3[i] == DataConsolidateFunction.SUM.Name)
                             {
                                 pivotTable3.AddColumnLabel(DataConsolidateFunction.SUM, kvp.Value.valueLabels3[i], "Sum of " + pivotHeaderCell.StringCellValue);
                                 //pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.valueLabels[i]).dataField = true;
+
+                                var dataFields = pivotTable3.GetCTPivotTableDefinition().dataFields.dataField;
+                                if (dataFields.Count > 0)
+                                {
+                                    // Only set numFmtId for the last added field
+                                    dataFields[dataFields.Count - 1].numFmtId = 3;
+                                }
                             }
 
                             else if (kvp.Value.valueFunctions3[i] == DataConsolidateFunction.AVERAGE.Name)
                             {
                                 pivotTable3.AddColumnLabel(DataConsolidateFunction.AVERAGE, kvp.Value.valueLabels3[i], "Average of " + pivotHeaderCell.StringCellValue);
                                 //pivotTable1.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.valueLabels[i]).dataField = true;
+
+                                var dataFields = pivotTable3.GetCTPivotTableDefinition().dataFields.dataField;
+                                if (dataFields.Count > 0)
+                                {
+                                    // Only set numFmtId for the last added field
+                                    dataFields[dataFields.Count - 1].numFmtId = 2;
+                                }
                             }
                         }
 
@@ -439,18 +518,32 @@ namespace ExcelExport
                         
                     }
 
+                    
+
                     else if(!kvp.Value.pivotTable)
                     {
                         workbook.RemoveSheetAt(1);
                     }
 
                     //Hide Duplicate Columns
-                    for (int i = 0; i < kvp.Value.duplicateColumns.Length; i++)
+                    if (kvp.Value.duplicateColumns.Length > 0)
                     {
-                        dataSheet.SetColumnHidden(kvp.Value.duplicateColumns[i], true);
+                        for (int i = 0; i < kvp.Value.duplicateColumns.Length; i++)
+                        {
+                            dataSheet.SetColumnHidden(kvp.Value.duplicateColumns[i], true);
+                        }
                     }
+
+                    
                 }
             }
+        }
+
+        public static void AddSlicer(IWorkbook workbook)
+        {
+            XLWorkbook wb = (XLWorkbook)workbook;
+            var ws = wb.Worksheets.Add("Test");
+
         }
 
         public static void AddColLabel(XSSFPivotTable pivotTable, int columnIndex, AreaReference areaReference, int lastColumn, int lastRow)
@@ -480,18 +573,20 @@ namespace ExcelExport
             items.count = items.SizeOfItemArray();// setCount(items.sizeOfItemArray());
             pivotFields.SetPivotFieldArray(columnIndex, pivotField);
 
-            CT_ColFields rowFields;
+            CT_ColFields colFields;
             if (pivotTable.GetCTPivotTableDefinition().colFields != null)
             {
-                rowFields = pivotTable.GetCTPivotTableDefinition().colFields;
+                colFields = pivotTable.GetCTPivotTableDefinition().colFields;
             }
             else
             {
-                rowFields = pivotTable.GetCTPivotTableDefinition().AddNewColFields();
+                colFields = pivotTable.GetCTPivotTableDefinition().AddNewColFields();
             }
 
-            rowFields.AddNewField().x = columnIndex;// setX(columnIndex);
-            rowFields.count = rowFields.SizeOfFieldArray();// setCount(rowFields.sizeOfFieldArray());
+            colFields.AddNewField().x = columnIndex;// setX(columnIndex);
+            colFields.count = colFields.SizeOfFieldArray();// setCount(rowFields.sizeOfFieldArray());
+
+            
 
 
 
@@ -512,45 +607,54 @@ namespace ExcelExport
                     if (kvp.Value.collapseField)
                     {
                         //we need unique contents from 2nd row label for creating the pivot cache
-                        
-                        List<string> collapseRowValues = new List<string>();
 
-                        for (int r = 1; r < dataSheet.LastRowNum + 1; r++)
-                        {
-                            IRow row = dataSheet.GetRow(r);
-                            if (row != null)
-                            {
-                                ICell cell = row.GetCell(kvp.Value.rowLabels[1]);
-                                if (cell != null)
-                                {
-                                    collapseRowValues.Add(cell.StringCellValue);
-                                }
-                            }
-                        }
+                        //List<string> collapseRowValues = new List<string>();
+
+                        //for (int r = 1; r < dataSheet.LastRowNum + 1; r++)
+                        //{
+                        //    IRow row = dataSheet.GetRow(r);
+                        //    if (row != null)
+                        //    {
+                        //        ICell cell = row.GetCell(kvp.Value.rowLabels[1]);
+                        //        if (cell != null)
+                        //        {
+                        //            collapseRowValues.Add(cell.StringCellValue);
+                        //        }
+                        //    }
+                        //}
 
                         ////now go through all pivot items of first pivot field 
-                        List<CT_Item> itemList = pivotTable.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.rowLabels[1]).items.item;
-                        int i = 0;
-                        CT_Item? item = null;
+                        //List<CT_Item> itemList = pivotTable.GetCTPivotTableDefinition().pivotFields.GetPivotFieldArray(kvp.Value.rowLabels[1]).items.item;
+                        //int i = 0;
+                        //CT_Item? item = null;
 
-                        foreach (string value in collapseRowValues)
-                        {
-                            item = itemList[i];
-                            item.t = ST_ItemType.blank;
-                            item.x = (uint)i++;
-                            //item.s = value;
-                            pivotTable.GetPivotCacheDefinition().GetCTPivotCacheDefinition().cacheFields.cacheField[kvp.Value.rowLabels[1]].sharedItems.Items.Add(item.n);
-                            //CT_Item item2 = (CT_Item)pivotTable.GetPivotCacheDefinition().GetCTPivotCacheDefinition().cacheFields.cacheField[kvp.Value.rowLabels[1]].sharedItems.Items.Last();
-                            //pivotTable.GetPivotCacheDefinition().GetCTPivotCacheDefinition().cacheFields.cacheField[kvp.Value.rowLabels[1]].sharedItems.Items.Last() = item2 ;
-                            //item2.
-                            item.sd = false;
-                        }
+                        //foreach (string value in collapseRowValues)
+                        //{
+                        //    item = itemList[i];
+                        //    item.t = ST_ItemType.blank;
+                        //    item.x = (uint)i++;
+                        //    //item.s = value;
+                        //    pivotTable.GetPivotCacheDefinition().GetCTPivotCacheDefinition().cacheFields.cacheField[kvp.Value.rowLabels[0]].sharedItems.Items.Add(item.n);
+                        //    //CT_Item item2 = (CT_Item)pivotTable.GetPivotCacheDefinition().GetCTPivotCacheDefinition().cacheFields.cacheField[kvp.Value.rowLabels[1]].sharedItems.Items.Last();
+                        //    //pivotTable.GetPivotCacheDefinition().GetCTPivotCacheDefinition().cacheFields.cacheField[kvp.Value.rowLabels[1]].sharedItems.Items.Last() = item2 ;
+                        //    //item2.
+                        //    item.sd = false;
 
-                        while (i < itemList.Count) ;
-                        {
-                            item = itemList[i++];
-                            item.sd = false;
-                        }
+                        //    var a = pivotTable.GetCTPivotTableDefinition();
+                        //    var b = pivotTable.GetPivotCacheDefinition().GetCTPivotCacheDefinition().cacheFields.cacheField.;
+                        //    pivotTable.GetCTPivotTableDefinition().pivotFields.pivotField[0].items.item[0].
+
+
+
+                        //}
+
+                        //while (i < itemList.Count) 
+                        //{
+                        //    item = itemList[i++];
+                        //    item.sd = false;
+                        //}
+
+
 
                         //CT_PivotField pivotField = pivotTable.GetCTPivotTableDefinition().pivotFields.pivotField[kvp.Value.rowLabels[1]];
                         //int j = 0;
@@ -560,13 +664,25 @@ namespace ExcelExport
                         //    pivotField.items.item[j].t = ST_ItemType.blank;
                         //}
 
+
+                        CT_PivotTableDefinition a = pivotTable.GetCTPivotTableDefinition();
+                        CT_PivotFields b = a.pivotFields;
+                        CT_RowFields c = a.rowFields;
+
+                        foreach (var rf in c.field)
+                        {
+                            int index = (int)rf.x;
+
+                            CT_PivotCacheDefinition d = pivotTable.GetPivotCacheDefinition().GetCTPivotCacheDefinition();
+
+                            b.pivotField[index].showAll = false;
+                            b.pivotField[index].outline = true;
+                            b.pivotField[index].items.item[1].h = true;
+
+                        }
                     }
                 }
-            }
-
-
-
-           
+            }         
         }
         private static void SendEmail(string fileName)
         {
@@ -579,21 +695,36 @@ namespace ExcelExport
                 if (kvp.Key == fileName) // If name of query from json file and name of query from the queries folder match, then create email with attachment and send
                 {
                     string reportPath = AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\Reports\" + DateTime.Now.ToString("dd-MMM") + " - " + fileName + ".xlsx";
-
+                    
                     for (int i = 0; i < kvp.Value.address.Length; i++)
                     {
-                        emailer.SendEmail(kvp.Value.address[i], kvp.Value.subject, kvp.Value.body, reportPath);
+                        emailer.SendEmail(kvp.Value.address[i],kvp.Value.cc[i], kvp.Value.subject, kvp.Value.body, reportPath);
                     }
                 }
             }
+        }
+
+        private static void AddExistingSheetToNewFile(IWorkbook workbook)
+        {
+            IWorkbook workbook2 = new XSSFWorkbook();
+
+            using (FileStream fs = new FileStream(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\Reports\" + DateTime.Now.ToString("dd-MMM") + " - " + "GL Code.xlsx", FileMode.Open, FileAccess.Read))
+            {
+                workbook2 = WorkbookFactory.Create(fs);
+            }
+
+            ISheet copySheet = workbook2.GetSheetAt(0);
+
+            ISheet cSheet = workbook.CloneSheet(workbook2.GetSheetIndex(copySheet));
+            //workbook.CreateSheet("GL Code");
+            
         }
     }
 }
 
 
 
-/* create all pivot tables for report in single for loop
- * create separate methods for adding all fields to pivot table
+/* Multiple Attachemnts: create all reports and store them in a new directory. Once all reports generated, then send email attaching all reports in that directory
  * 
  */
 

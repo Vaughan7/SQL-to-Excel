@@ -99,11 +99,18 @@ namespace ExcelExport
             {
                 OracleCommand command = new OracleCommand(query, connection);
 
-                    using (OracleDataAdapter adapter = new OracleDataAdapter(command))
-                    {
-                        // Fill the DataTable with the result-set from the adapter
-                        adapter.Fill(dataTable);
-                    }
+
+                using (OracleDataAdapter adapter = new OracleDataAdapter(command))
+                {
+                    // Fill the DataTable with the result-set from the adapter
+                    adapter.Fill(dataTable);
+
+                }
+            }
+
+            catch (OracleException ex)
+            {
+                logger.Error(String.Format(ex.Message));
             }
             catch (Exception ex)
             {
@@ -118,6 +125,7 @@ namespace ExcelExport
                 //    //logger.Error(String.Format(ex.Message));
                 //}
             }
+            
 
             return dataTable;
         }

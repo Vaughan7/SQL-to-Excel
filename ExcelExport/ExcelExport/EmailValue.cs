@@ -14,6 +14,9 @@ namespace ExcelExport
         [JsonProperty("Address")]
         public string[] address { get; set; }
 
+        [JsonProperty("CC")]
+        public string[] cc { get; set; }
+
         [JsonProperty("Subject")]
         public string subject { get; set; }
 
@@ -70,6 +73,15 @@ namespace ExcelExport
 
         [JsonProperty("Collapsed Field")]
         public bool collapseField {  get; set; }
+
+        [JsonProperty("Move Σ Value")]
+        public bool moveΣValue { get; set; }
+
+        [JsonProperty("Move Σ Value 2")]
+        public bool moveΣValue2 { get; set; }
+
+        [JsonProperty("Filter")]
+        public int[] filter { get; set; }
 
 
     }

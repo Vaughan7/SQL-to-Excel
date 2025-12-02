@@ -16,10 +16,14 @@ namespace ExcelExport
     {
         private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public void SendEmail(string recipient, string subject, string body, string attachmentPath)
+        public void SendEmail(string recipient, string cc, string subject, string body, string attachmentPath)
         {
+
+            string currentDateTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+
             try
             {
+
                 QueryManager queryManager = new QueryManager();
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
@@ -28,11 +32,14 @@ namespace ExcelExport
                 var emailData = GetRecipients();
 
                 message.From = new MailAddress("vaughank@bipa.na");
-                message.To.Add(new MailAddress(recipient));
+                message.To.Add(recipient);
                 message.Subject = subject;
                 message.IsBodyHtml = false;
                 message.Body = body;
                 message.Attachments.Add(attachment);
+                message.CC.Add(cc);
+                //message.CC.Add(new MailAddress("andyc@bipa.na"));
+                //message.CC.Add(new MailAddress("alueendor@bipa.na"));
 
                 //string[] attachments;
                 //foreach(string att in attachments)
@@ -44,13 +51,19 @@ namespace ExcelExport
                 smtp.Host = "smtp.office365.com";
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential("vaughank@bipa.na", "Bipa4321");
+                smtp.Credentials = new System.Net.NetworkCredential("vaughank@bipa.na", "jmnknlmskvxywvmv"); 
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine($"Error sending email: {ex.Message}");
 
+                using (StreamWriter errorWriter = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\logs\errorLog.log", true))
+                {
+                    errorWriter.WriteLine($"Current Time: {currentDateTime} - Error: {ex.ToString()}");
+                    errorWriter.WriteLine();
+                }
             }
         }
 
